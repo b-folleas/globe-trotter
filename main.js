@@ -1,17 +1,19 @@
 import './style.css';
-import {Map, View} from 'ol';
-import TileLayer from 'ol/layer/Tile';
+import { Map, View } from 'ol';
+import { Tile } from 'ol/layer';
 import OSM from 'ol/source/OSM';
+import { fromLonLat } from 'ol/proj';
 
-const map = new Map({
-  target: 'map',
-  layers: [
-    new TileLayer({
-      source: new OSM()
+///SHOW MAP
+var map = new Map({
+    target: 'map',
+    layers: [
+        new Tile({
+            source: new OSM()
+        })
+    ],
+    view: new View({
+        center: fromLonLat([4.8552, 45.7774]),
+        zoom: 6
     })
-  ],
-  view: new View({
-    center: [0, 0],
-    zoom: 2
-  })
 });
